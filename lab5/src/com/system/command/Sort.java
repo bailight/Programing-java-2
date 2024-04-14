@@ -12,6 +12,13 @@ public class Sort extends Command{
 		super("sort", "отсортировать коллекцию в естественном порядке");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * sort collection
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {

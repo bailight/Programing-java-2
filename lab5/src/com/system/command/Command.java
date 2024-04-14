@@ -2,6 +2,10 @@ package com.system.command;
 
 import com.system.exceptions.*;
 
+/**
+ * parent of all commands
+ */
+
 public abstract class Command {
 	private final String name;
     private final String description;

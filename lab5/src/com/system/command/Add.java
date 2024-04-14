@@ -13,10 +13,17 @@ public class Add extends Command{
 		this.collectionManager = collectionManager;
 	}
 
+	 /**
+     * Add a java object to the collection
+     * 
+     * @param argument must be empty to execute
+     * @excrption InvalidInput if argument isn't empty
+     */
+	
 	@Override
 	public void execute(String argument) throws InvalidInput {
 		if(!argument.isEmpty()) {
-			throw new InvalidInput();
+			throw new InvalidInput(); 
 		}
 		try {
 			collectionManager.Add();

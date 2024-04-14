@@ -10,6 +10,13 @@ public class RemoveAt extends Command{
 		super("remove_at", "удалить элемент, находящийся в заданной позиции коллекции (index)");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * Delete objects in collection based on index
+     * 
+     * @param argument must be empty to execute
+     * @excrption InvalidInput if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {

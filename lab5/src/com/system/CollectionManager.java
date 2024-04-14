@@ -53,11 +53,19 @@ public class CollectionManager {
 		return LocalDate.now().toString();
 	}
 	
+	/**
+     * Info collection
+     */
+	
 	public String Info() {
-		return "Коллекция: Колесо" 
+		return "Коллекция: машина" 
 				+ "\nДата инициализации: " + this.DataSave 
 				+ "\nколичество элементов: " + vehicles.size();
     }
+	
+	/**
+     * Add object to collection
+     */
 	
 	public void Add() throws InvalidInput, IOException, IllegaValue {
 		this.DataSave = LocalDate.now();
@@ -68,10 +76,18 @@ public class CollectionManager {
 		vehicles.add(fill.fillvehicle(id, DataSave));
 	}
 	
+	/**
+     * removes all elements from the collection
+     */
+	
 	public void Clear() {
 		vehicles.clear();
 		System.out.println("Коллекция очищена.");
 	}
+	
+	/**
+     * Show collection
+     */
 	
 	public void Show() {
         if (vehicles.size() != 0){
@@ -81,11 +97,19 @@ public class CollectionManager {
         }
 	}
 	
+	/**
+     * Save collection
+     */
+	
 	public void Save() {
 		OutputData.checkPermissions(filePath);
 		outputData.save(vehicles, filePath);
 		System.out.println("Коллекция сохранена.");
 	}
+	
+	/**
+     * Update an object in a collection
+     */
 	
 	public void Update(String id) throws IOException, IllegaValue, InvalidInput {
 		if(Fill.checkID(vehicles, id)) {
@@ -109,6 +133,10 @@ public class CollectionManager {
 		}
 	}
 	
+	/**
+     * Print the collection in reverse order
+     */
+	
 	public void PrintDes() {
 		if(vehicles.size() != 0) {
 			Collections.reverse(vehicles);
@@ -119,6 +147,10 @@ public class CollectionManager {
 		}
 	}
 	
+	/**
+     * Shuffle collection
+     */
+	
 	public void Shuffle() {
 		if(vehicles.size() != 0) {
 			Collections.shuffle(vehicles);
@@ -128,6 +160,10 @@ public class CollectionManager {
 		}
 	}
 	
+	/**
+     * Reorder the collection
+     */
+	
 	public void Sort() {
 		if(vehicles.size() != 0) {
 			vehicles.sort(Comparator.comparingLong(Vehicle::getID));
@@ -136,6 +172,10 @@ public class CollectionManager {
 			System.out.println("колекция пустой");
 		}
 	}
+	
+	/**
+     * Print the collection in reverse order
+     */
 	
 	public void PrintDesFule() {
 		if(vehicles.size() != 0) {
@@ -150,6 +190,10 @@ public class CollectionManager {
 			System.out.println("колекция пустой");
 		}
 	}
+	
+	/**
+     * Classification objects according to fuel types
+     */
 	
 	public void GroupCountingByFuleType() {
 		if(vehicles.size() != 0) {
@@ -171,6 +215,10 @@ public class CollectionManager {
 		}
 	}
 	
+	/**
+     * Delete coordinates according to index
+     */
+	
 	public void RemoveAt(String num) {
 		if(Fill.isNumeric(num) & vehicles.size() != 0) {
 			int index = Integer.parseInt(num);
@@ -184,6 +232,10 @@ public class CollectionManager {
 			System.out.println("в коллекции не существует такой индекс или колекция пустой");
 		}
 	}
+	
+	/**
+     * Delete coordinates according to id
+     */
 	
 	public void RemoveByID(String id) {
 		if(Fill.checkID(vehicles, id)) {

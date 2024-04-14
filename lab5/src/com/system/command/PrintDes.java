@@ -10,6 +10,13 @@ public class PrintDes extends Command{
 		super("print_descending", "вывести элементы коллекции в порядке убывания");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * Output collection in reverse order
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {

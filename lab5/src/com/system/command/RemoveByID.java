@@ -10,6 +10,13 @@ public class RemoveByID extends Command{
 		super("remove_by_id", "удалить элемент из коллекции по его id");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * Delete objects in collection based on id
+     * 
+     * @param argument must be empty to execute
+     * @excrption InvalidInput if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {

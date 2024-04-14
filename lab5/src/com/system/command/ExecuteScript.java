@@ -8,6 +8,7 @@ import com.system.exceptions.*;
 public class ExecuteScript extends Command{
 	private final InputData inputData;
 	private final ArrayList<Command> commands;
+
 	
 	public ExecuteScript(InputData inputData, ArrayList<Command> commands) {
 		super("execute_script", "считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме");
@@ -15,6 +16,13 @@ public class ExecuteScript extends Command{
 		this.commands = commands;
 	}
 
+	/**
+     * Enter the instructions in the script
+     * 
+     * @param argument mustn't be empty
+     * @excrption NoSuchCommandException if argument is empty
+     */
+	
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {
 		if (argument.isEmpty()) {

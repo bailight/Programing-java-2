@@ -11,6 +11,13 @@ public class Clear extends Command{
 		super("clear", "очистить коллекцию");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * Clean all objects in the collection
+     * 
+     * @param argument must be empty to execute
+     * @excrption InvalidInput if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand {

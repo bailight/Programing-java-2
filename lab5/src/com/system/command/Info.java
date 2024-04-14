@@ -10,6 +10,13 @@ public class Info extends Command{
 		super("info", "вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * View info
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
 
 	@Override
 	public void execute(String arg) throws NoSuchCommand {

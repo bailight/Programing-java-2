@@ -12,6 +12,13 @@ public class PrintDesFule extends Command{
 		super("print_field_descending_fuel_type", "вывести значения поля fuelType всех элементов в порядке убывания");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * Outputs a collection of gasoline types sorted in reverse order.
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {

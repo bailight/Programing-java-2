@@ -15,7 +15,14 @@ public class Update extends Command{
 		super("update", "обновить значение элемента коллекции, id которого равен заданному");
 		this.collectionManager = collectionManager;
 	}
-
+	
+	/**
+     * Update a java object to the collection
+     * 
+     * @param argument must be empty to execute
+     * @excrption InvalidInput if argument isn't empty
+     */
+	
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {
 		if(argument.isEmpty()) {

@@ -12,6 +12,12 @@ public class Help extends Command{
 		this.commands = commands;
 	}
 	
+	/**
+     * View help
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
 	
 	public void execute(String argument) throws NoSuchCommand {
         if (!argument.isEmpty()) {

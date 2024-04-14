@@ -11,6 +11,13 @@ public class Save extends Command{
 		this.collectionManager = collectionManager;
 	}
 	
+	/**
+     * save collection
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
+	
 	public void execute(String argument) throws NoSuchCommand {
         if (!argument.isEmpty()) {
             throw new NoSuchCommand();

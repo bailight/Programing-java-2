@@ -12,7 +12,13 @@ public class GroupCountingByFuleType extends Command{
 		super("group_counting_by_fuel_type", "сгруппировать элементы коллекции по значению поля fuelType, вывести количество элементов в каждой группе");
 		this.collectionManager = collectionManager;
 	}
-
+	
+	/**
+     * Grouped by fuel type
+     * @param argument must be empty
+     * @throws NoSuchCommandException if argument isn't empty
+     */
+	
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {
 		if (!argument.isEmpty()) {

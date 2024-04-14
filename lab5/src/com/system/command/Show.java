@@ -10,6 +10,13 @@ public class Show extends Command{
 		super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * display collection
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand{

@@ -12,6 +12,13 @@ public class Shuffle extends Command{
 		super("shuffle", "перемешать элементы коллекции в случайном порядке");
 		this.collectionManager = collectionManager;
 	}
+	
+	/**
+     * shuffle collection
+     * 
+     * @param argument must be empty to execute
+     * @excrption NoSuchCommand if argument isn't empty
+     */
 
 	@Override
 	public void execute(String argument) throws NoSuchCommand, ScriptException, InvalidInput {
