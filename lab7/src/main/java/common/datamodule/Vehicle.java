@@ -1,0 +1,145 @@
+package common.datamodule;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Vehicle implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private Long id;
+    private String name;
+    private Coordinates coordinates;
+    private java.time.LocalDate creationDate;
+    private Float enginePower;
+    private double capacity;
+    private float distanceTravelled;
+    private FuelType fuelType;
+    private String username;
+    /**
+     * builds new object and generate id and current date as date of creation
+     *
+     * @param id				id of the Vehicle(must be greater than 0, The value of this field must be unique, The value of this field must be generated automatically)
+     * @param name              name of the Vehicle (cannot be null, String cannot be empty)
+     * @param coordinates       coordinates of the Vehicle (Field cannot be null)
+     * @param creationDate		Vehicle creation date (cannot be null, the value of this field must be generated automatically)
+     * @param enginePower       Vehicle engine power(can be null, Field value must be greater than 0)
+     * @param capacity        	Fuel tank capacity(must be greater than 0)
+     * @param distanceTravelled The farthest distance a vehicle can travel with a full tank of fuel(The field value must be greater than 0)
+     * @param fuelType          Types of gasoline needed for cars (can be null)
+     */
+
+    public Vehicle(){}
+
+    public Vehicle(String name, Coordinates coordinates, java.time.LocalDate creationDate, Float enginePower, double capacity, float distanceTravelled, FuelType fuelType){
+    	this.name = name;
+    	this.coordinates = coordinates;
+    	this.creationDate = creationDate;
+    	this.enginePower = enginePower;
+    	this.capacity = capacity;
+    	this.distanceTravelled = distanceTravelled;
+    	this.fuelType = fuelType;
+    }
+
+    public Vehicle(Long id, String name, Coordinates coordinates, java.time.LocalDate creationDate, Float enginePower, double capacity, float distanceTravelled, FuelType fuelType, String username){
+    	this.id = id;
+    	this.name = name;
+    	this.coordinates = coordinates;
+    	this.creationDate = creationDate;
+    	this.enginePower = enginePower;
+    	this.capacity = capacity;
+    	this.distanceTravelled = distanceTravelled;
+    	this.fuelType = fuelType;
+        this.username = username;
+    }
+
+    public void setID(Long id) {
+    	this.id = id;
+    }
+    public void setName(String name) {
+    	this.name = name;
+    }
+    public void setCoordinates(Coordinates coordinates) {
+    	this.coordinates = coordinates;
+    }
+    public void setCreationDate(java.time.LocalDate creationDate) {
+    	this.creationDate = creationDate;
+    }
+    public void setEnginePower(Float enginePower) {
+    	this.enginePower = enginePower;
+    }
+    public void setCapacity(double capacity) {
+    	this.capacity = capacity;
+    }
+    public void setDistanceTravelled(Float distanceTravelled) {
+    	this.distanceTravelled = distanceTravelled;
+    }
+    public void setFuelType(FuelType fuelType) {
+    	this.fuelType = fuelType;
+    }
+    public void setUser(String usename){
+        this.username = usename;
+    }
+
+    public long getID() {
+    	return id;
+    };
+    public String getName() {
+    	return name;
+    };
+    public int getCoordinatesX() {
+    	return coordinates.getX();
+    };
+    public Long getCoordinatesY() {
+    	return coordinates.getY();
+    };
+    public java.time.LocalDate getCreationDate() {
+    	return creationDate;
+    };
+    public Float getEnginePower() {
+    	return enginePower;
+    };
+    public double  getCapacity() {
+    	return capacity;
+    };
+    public float getDistanceTravelled() {
+    	return distanceTravelled;
+    };
+
+    public FuelType getFuelType() {
+    	return fuelType;
+    };
+
+    public String getUser(){
+        return username;
+    }
+
+
+    @Override
+    public String toString() {
+        return  "\nid: " + id +
+				"\nname: " + name +
+				"\ncoordinates: " + coordinates +
+				"\ncreationDate: " + creationDate +
+				"\nenginePower: " + enginePower +
+				"\ncapacity: " + capacity +
+				"\ndistanceTravelled: " + distanceTravelled +
+				"\nfuelType: " + fuelType;
+    }
+
+    public byte[] serialize() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(this);
+        oos.flush();
+        return baos.toByteArray();
+    }
+
+    public static Vehicle deserialize(byte[] bytes) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+        ObjectInputStream ois = new ObjectInputStream(bais);
+        return (Vehicle) ois.readObject();
+    }
+}
